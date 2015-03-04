@@ -9,12 +9,21 @@
 
     $app->get("/", function() {
         $output = "";
+        $allTasks = Task::getAll();
 
-        foreach (Task::getAll() as $task) {
-            $output .= "<p>" . $task->getDescription() . "</p>";
+        if (!empty($allTasks)) {
+            $output .= "
+                <h1>To Do List</h1>
+                <p>Here are all your tasks:</p>
+                <ul>";
+            foreach (Task::getAll() as $task) {
+                $output .= "<p>" . $task->getDescription() . "</p>";
+            }
+            $output .= "</ul>";
         }
 
-        $output .= "</ul>
+
+        $output .= "
             <form action='/tasks' method='post'>
                 <label for='description'>Task Description</label>
                 <input id='description' name='description' type='text'>
@@ -25,7 +34,7 @@
         return $output;
     });
 
-    $app->post("/task", function() {
+    $app->post("/tasks", function() {
         $task = new Task($_POST['description']);
         $task->save();
         return "

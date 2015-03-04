@@ -25,4 +25,8 @@ class Task
     static function getALl() {
         return $_SESSION['taskList'];
     }
+
+    static function deleteAll() {
+        $_SESSION['taskList'] = [];
+    }
 }

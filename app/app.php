@@ -29,6 +29,9 @@
                 <input id='description' name='description' type='text'>
 
                 <button type='submit'>Add task</button>
+            </form>
+            <form action='/deleteTasks' method='post'>
+                <button type='submit'>delete</button>
             </form>";
 
         return $output;
@@ -41,6 +44,12 @@
             <h1>You created a task!</h1>
             <p>" . $task->getDescription() . "</p>
             <p><a href='/'>View your list of things to do.</a></p>";
+    });
+
+    $app->post("/deleteTasks", function() {
+        Task::deleteAll();
+        return "<h2>All your tasks are belong to us.</h2>
+        <p><a href='/'>View your list of things to do.</a></p>";
     });
 
     return $app;

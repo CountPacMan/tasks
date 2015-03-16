@@ -13,8 +13,8 @@
       $this->name = (string) $name;
     }
 
-    function setId ($id) {
-      $this->
+    function setId($id) {
+      $this->id = (int) $id;
     }
 
     // getters

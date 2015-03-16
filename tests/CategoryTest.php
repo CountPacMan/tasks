@@ -47,6 +47,7 @@
 
       // Act
       $test_Category->setId(2);
+      $result = $test_Category->getId();
 
       // Assert
       $this->assertEquals(2, $result);

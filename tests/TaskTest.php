@@ -18,7 +18,7 @@
     function test_save() {
       // Arrange
       $description = "Wash the dog";
-      $test_task = new Task($description, $id);
+      $test_task = new Task($description);
 
       // Act
       $test_task->save();
@@ -77,8 +77,7 @@
     function test_setId() {
       // Arrange
       $description = "Wash the dog";
-      $id = null;
-      $test_Task = new Task($description, $id);
+      $test_Task = new Task($description);
 
       // Act
       $test_Task->setId(2);

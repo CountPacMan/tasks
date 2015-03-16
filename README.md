@@ -1,6 +1,6 @@
 # Tasks for Epicodus
 ## by Daniel Toader and Cynthia Wilhelm
-### Date: March 13, 2015
+### Date: March 16, 2015
 #### Description
 Creates tasks and categories and saves them to a PostgreSQL database.
 

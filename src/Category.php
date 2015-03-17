@@ -74,7 +74,7 @@
       return $found_category;
     }
 
-    function search($description) {
+    static function search($description) {
     $tasks = [];
     $returned_tasks = $GLOBALS['DB']->query("SELECT * FROM tasks WHERE description = '{$description}';");
     foreach ($returned_tasks as $task) {

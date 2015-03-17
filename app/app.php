@@ -38,7 +38,15 @@
   });
 
   $app->post("/search", function() use ($app) {
-    
+    $results = Category::search($_POST['name']);
+    $temp = [];
+    foreach($results as $result) {
+      $temp_category = Category::find($result->getCategoryId());
+      $name = $temp_category->getName();
+      $new_task = new Task($name, null, null, $result->getDueDate());
+      array_push($temp, $new_task);
+    }
+    return $app['twig']->render('search_results.html.twig', array('results' => $temp, 'search_term' => $_POST['name']));
   });
 
   $app->post("/deleteTasks", function() use ($app) {

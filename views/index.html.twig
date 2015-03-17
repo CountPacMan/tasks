@@ -29,6 +29,14 @@
         {% else %}
           <p>There are no categories yet!</p>
       {% endif %}
+
+      <form action='/search' method='post'>
+        <div class='form-group'>
+          <label for='name'>Task to search:</label>
+          <input id='name' name='name' class='form-control' type='text'>
+        </div>
+        <button type='submit' class='btn btn-success'>GIMME</button>
+      </form>
     </div>
 
   </body>

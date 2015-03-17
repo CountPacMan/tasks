@@ -126,11 +126,11 @@
 
       $test_category_id = $test_Category->getId();
       $description = "email client";
-      $test_task = new Task($description, $test_category_id);
+      $test_task = new Task($description, $test_category_id, 1, '1999/01/01');
       $test_task->save();
 
       $description2 = "meet with biscuit head";
-      $test_task2 = new Task($description2, $test_category_id);
+      $test_task2 = new Task($description2, $test_category_id, 2, '2000/01/01');
       $test_task2->save();
 
       // Act
@@ -138,6 +138,24 @@
 
       // Assert
       $this->assertEquals([$test_task, $test_task2], $result);
+    }
+
+    function test_search() {
+      // Arrange
+      $name = "work stuff";
+      $test_Category = new Category($name);
+      $test_Category->save();
+
+      $test_category_id = $test_Category->getId();
+      $description = "email client";
+      $test_task = new Task($description, $test_category_id);
+      $test_task->save();
+
+      // Act
+      $result = $test_Category->search($description);
+
+      // Assert
+      $this->assertEquals($test_task, $result[0]);
     }
   }
 ?>

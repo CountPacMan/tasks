@@ -31,10 +31,14 @@
   });
 
   $app->post("/tasks", function() use ($app) {
-    $task = new Task($_POST['description'], $_POST['category_id']);
+    $task = new Task($_POST['description'], $_POST['category_id'], null, $_POST['due_date']);
     $task->save();
     $category = Category::find($_POST['category_id']);
     return $app['twig']->render('category.html.twig', array('category' => $category, 'tasks' => $category->getTasks()));
+  });
+
+  $app->post("/search", function() use ($app) {
+    
   });
 
   $app->post("/deleteTasks", function() use ($app) {

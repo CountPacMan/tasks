@@ -103,5 +103,19 @@
       // Assert
       $this->assertEquals($test_Task, $result);
     }
+
+    function test_dueDate() {
+      // Arrange
+      $description = "Wash the dog";
+      $due_date = '1/18/1999';
+      $test_Task = new Task($description, 1, 1, $due_date);
+
+      // Act
+      $result = $test_Task->getDueDate();
+
+      // Assert
+
+      $this->assertEquals($due_date, $result);
+    }
   }
 ?>

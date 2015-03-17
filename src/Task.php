@@ -2,11 +2,13 @@
   class Task {
     private $description;
     private $category_id;
+    private $due_date;
     private $id;
 
-    function __construct($description, $category_id, $id = null)   {
+    function __construct($description, $category_id, $id = null, $due_date = null)   {
       $this->description = $description;
       $this->category_id = $category_id;
+      $this->due_date = $due_date;
       $this->id = $id;
     }
 

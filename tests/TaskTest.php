@@ -62,39 +62,39 @@
       $this->assertEquals([], $result);
     }
 
-    // function test_getId() {
-    //   // Arrange
-    //   $description = "Wash the dog";
-    //   $id = 1;
-    //   $test_Task = new Task($description, $id);
-    //
-    //   // Act
-    //   $result = $test_Task->getId();
-    //
-    //   // Assert
-    //   $this->assertEquals(1, $result);
-    // }
-    //
-    // function test_setId() {
-    //   // Arrange
-    //   $description = "Wash the dog";
-    //   $test_Task = new Task($description);
-    //
-    //   // Act
-    //   $test_Task->setId(2);
-    //
-    //   // Assert
-    //   $result = $test_Task->getId();
-    //   $this->assertEquals(2, $result);
-    // }
+    function test_getId() {
+      // Arrange
+      $description = "Wash the dog";
+      $id = 1;
+      $test_Task = new Task($description, 1, $id);
+
+      // Act
+      $result = $test_Task->getId();
+
+      // Assert
+      $this->assertEquals(1, $result);
+    }
+
+    function test_setId() {
+      // Arrange
+      $description = "Wash the dog";
+      $test_Task = new Task($description, 1);
+
+      // Act
+      $test_Task->setId(2);
+
+      // Assert
+      $result = $test_Task->getId();
+      $this->assertEquals(2, $result);
+    }
 
     function test_find() {
       // Arrange
       $description = "Wash the dog";
       $description2 = "Water the lawn";
-      $test_Task = new Task($description, 1);
+      $test_Task = new Task($description, 1, 1);
       $test_Task->save();
-      $test_Task2 = new Task($description2, 1);
+      $test_Task2 = new Task($description2, 1, 1);
       $test_Task2->save();
 
       // Act
